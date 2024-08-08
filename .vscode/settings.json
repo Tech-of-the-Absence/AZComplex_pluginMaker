@@ -1,0 +1,12 @@
+{
+    "java.project.referencedLibraries": [
+      "lib/az_plugin_library.jar"
+    ],
+    "files.associations": {
+      "vector": "cpp",
+      "*.tcc": "cpp",
+      "ios": "cpp",
+      "ostream": "cpp"
+    }
+  }
+  
