@@ -32,6 +32,7 @@ public enum TestpluginActionSubType implements ActionSubType{
                 // <some other preparement instructions>
                 boolean flag=true;
                 do{
+                    // <a place where nothing should be written in order to avoid problems>
                     if(flag||c.dynamicCoords){ //Coordinates update (should be removed if action is not positional)
                         coords=c.getPoint();
                         x=coords.x;

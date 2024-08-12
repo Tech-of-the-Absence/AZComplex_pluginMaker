@@ -105,7 +105,7 @@ EXPORTABLE void TESTACTION(jobject action){
     input.mi.dx=p.x;
     bool flag=true;
     do{
-        // <place where nothing be written in order to avoid problems>
+        // <a place where nothing should be written in order to avoid problems>
 		if(flag||dynamic){ //First coordinates update.
 			updateCoords();
 			if(p.x==-1)continue;
