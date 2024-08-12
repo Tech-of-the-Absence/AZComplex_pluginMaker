@@ -27,16 +27,20 @@ public enum TestpluginActionSubType implements ActionSubType{
                 if(c.link!=null)c.link.init(f); //Watcher initialization
                 if(c.delay!=0)Main.delay(f,c.delay); //Delay
                 Main.activeCoordinators.get(c.coords).init(f); //Coordinator initialization (should be removed if action is not positional)
-                Point coords=c.getPoint();
-                int x=coords.x,y=coords.y;
+                Point coords;
+                int x=0,y=0;
                 // <some other preparement instructions>
+                boolean flag=true;
                 do{
+                    if(flag||c.dynamicCoords){ //Coordinates update (should be removed if action is not positional)
+                        coords=c.getPoint();
+                        x=coords.x;
+                        if(x==-1)continue;
+                        y=coords.y;
+                        flag=false;
+                    }
                     f.getRobot().mouseMove(x,y); //Some action
                     // ...
-                    if(c.dynamicCoords){ //Coordinates update (should be removed if action is not positional)
-                        coords=c.getPoint();
-                        x=coords.x;y=coords.y;
-                    }
                 }while(p.test(f)); //Watcher control
             };
         }
