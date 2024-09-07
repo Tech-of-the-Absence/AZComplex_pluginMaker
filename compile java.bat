@@ -5,7 +5,7 @@
 if not exist "net/azplugin" mkdir "net/azplugin"
 if not exist "net/out" mkdir "net/out"
 cd net
-javac -d out -sourcepath azplugin azplugin/*.java -cp ../lib/az_plugin_library.jar
+javac -d out -sourcepath azplugin azplugin/*.java -cp ../lib/*.jar
 if %ERRORLEVEL% neq 0 (
 	color 04
 	echo Error occured
