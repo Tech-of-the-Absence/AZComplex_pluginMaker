@@ -26,7 +26,7 @@ EXPORTABLE __fastcall void initVars(JNIEnv*,jobject(*getWatcher)(jobject)noexcep
 int realW,realH,screenW,screenH;
 jfieldID field_coords,field_reversed;
 
-EXPORTABLE void init(){ //TODO: fix `init()` method
+EXPORTABLE void init(){
     //Objects from java will tell you that your screen's width is `screenW`.
     jobject screenSize=env->GetStaticObjectField(env->FindClass("com/azcomplex/Root"),env->GetStaticFieldID(env->FindClass("com/azcomplex/Root"),"SCREEN_SIZE","Ljava/awt/Dimension;"));
 	screenW=env->GetIntField(screenSize,env->GetFieldID(env->GetObjectClass(screenSize),"width","I"));
