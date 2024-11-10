@@ -1,1 +1,2 @@
-This is a test plugin made as an example for other developers. You can also use it to learn how the plugin system works.
+This is a test plugin made as an example for other developers.
+You can also use it to learn how the plugin system works.

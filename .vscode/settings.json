@@ -1,12 +1,7 @@
 {
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.project.exportJar.targetPath": "${workspaceFolder}/${workspaceFolderBasename}/core.jar",
     "java.project.referencedLibraries": [
-      "lib/az_plugin_library.jar"
-    ],
-    "files.associations": {
-      "vector": "cpp",
-      "*.tcc": "cpp",
-      "ios": "cpp",
-      "ostream": "cpp"
-    }
-  }
-  
+        "lib/*.jar"
+    ]
+}
