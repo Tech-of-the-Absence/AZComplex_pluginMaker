@@ -3,13 +3,13 @@
 
 #pragma region //Do not edit!
 #define EXPORTABLE extern "C"
-EXPORTABLE __fastcall void initVars(JNIEnv*,jobject(*getWatcher)(jobject)noexcept,int(*getTypeOrd)(jobject)noexcept,bool(*callWatcher)(std::vector<std::any>*,int),void(*initWatcher)(vector<any>*,jobject,int),void(*delay)(DWORD),vector<Coordinator*>*,vector<Composer*>*,map<string,any*>*);
+EXPORTABLE __fastcall void initVars(JNIEnv*environment,jobject(*function_getWatcher)(jobject)noexcept,string(*function_getTypeOrd)(jobject)noexcept,bool(*function_callWatcher)(std::vector<std::any>*,string&),void(*function_initWatcher)(vector<any>*,jobject,string),void(*function_delay)(DWORD),vector<Coordinator*>*var_coordinators,vector<Composer*>*var_composers,map<string,any*>*var_resources);
 #pragma endregion
 
 
 
 /*
- * Welcome to AZ-Plugin maker!
+ * Welcome to AZComplex plugin maker!
  * 
  * Below, you can see the realisations of some AZComplex stuff.
  * Follow these examples and make your own plugin dll for Windows!
@@ -41,7 +41,7 @@ EXPORTABLE void init(){
 
 //Coordinators and composers
 
-EXPORTABLE Coordinator*create_TESTCOORDINATOR(jobject properties,jmethodID getElement){
+EXPORTABLE Coordinator*TESTCoordinator(jobject properties,jmethodID getElement){
     class V:public Coordinator{
         Point getPoint(){
             return Point(0,0);//Returning just a fixed point at (0,0)
@@ -53,7 +53,7 @@ EXPORTABLE Coordinator*create_TESTCOORDINATOR(jobject properties,jmethodID getEl
     return new V();
 }
 
-EXPORTABLE Composer*create_TESTCOMPOSER(jobject properties,jmethodID getElement){
+EXPORTABLE Composer*TESTComposer(jobject properties,jmethodID getElement){
     class V:public Composer{
         const jchar*str=(const jchar*)L"Test string";
         const jchar*getString(){
@@ -74,7 +74,7 @@ EXPORTABLE Composer*create_TESTCOMPOSER(jobject properties,jmethodID getElement)
  * Creates `reversed` variable representing the `reversed` flag of a watcher.
 */
 #define deployWatcher() jobject watcher=getWatcher(action);\
-	int wType=getTypeOrd(watcher);\
+	string wType=getTypeOrd(watcher);\
 	vector<any>d;\
 	initWatcher(&d,watcher,wType);\
 	bool reversed=watcher==NULL?false:env->GetBooleanField(watcher,field_reversed);
@@ -95,7 +95,7 @@ EXPORTABLE Composer*create_TESTCOMPOSER(jobject properties,jmethodID getElement)
 
 //Actions
 
-EXPORTABLE void TESTACTION(jobject action){
+EXPORTABLE void TESTAction(jobject action){
     extractCoords();
 	deployWatcher();
     INPUT input={0};
@@ -141,7 +141,7 @@ struct CoordsKit{
 
 //Watchers
 
-EXPORTABLE bool TESTWATCHER(vector<any>*params)noexcept{
+EXPORTABLE bool TESTWatcher(vector<any>*params)noexcept{
 	CoordsKit cc=any_cast<CoordsKit>(params->at(1));
 	bool b=cc.x>cc.y;
 	if(cc.dynamic)updateCoordsInPixels(); //Coords updating
@@ -163,6 +163,6 @@ EXPORTABLE bool TESTWATCHER(vector<any>*params)noexcept{
 
 //Watchers initialization
 
-EXPORTABLE void init_TESTWATCHER(vector<any>*params,jobject watcher){ //Optional method (necessary in case if coordinates are used)
+EXPORTABLE void init_TESTWatcher(vector<any>*params,jobject watcher){ //Necessary in case if coordinates are used
     addCoords();
 }

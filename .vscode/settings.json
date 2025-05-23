@@ -3,5 +3,8 @@
     "java.project.exportJar.targetPath": "${workspaceFolder}/${workspaceFolderBasename}/core.jar",
     "java.project.referencedLibraries": [
         "lib/*.jar"
-    ]
+    ],
+    "files.associations": {
+        "ostream": "cpp"
+    }
 }

@@ -19,7 +19,7 @@
             <artifactId>az-plugin-library</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/az_plugin_library.jar</systemPath>
+            <systemPath>${project.basedir}/lib/azplugin_library.jar</systemPath>
         </dependency>
     </dependencies>
     <build>
