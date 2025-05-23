@@ -15,6 +15,6 @@ if %ERRORLEVEL% neq 0 (
 	exit /b %ERRORLEVEL%
 )
 del wincore.o
-color 02
+color 02A
 cls
 echo Compilation completed!

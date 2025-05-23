@@ -10,26 +10,26 @@ import java.util.ArrayList;
 import com.azexternal.Coordinator;
 import com.azexternal.Coordinator.CoordinatorType;
 import com.azexternal.DynamicSupplier;
-import com.azexternal.ITaskExecutor;
 import com.azexternal.PluginComponent;
+import com.azexternal.ITaskExecutor;
 
 /*
- * Welcome to AZ-Plugin maker!
+ * Welcome to AZComplex plugin maker!
  * 
  * Below you can see a basic realization of the `CoordinatorSubType` interface.
  */
 
 @PluginComponent
-public class TESTCoordinator implements CoordinatorType{ //Pay attention to the name style. The pattern is YOURNAMECoordinator
+public class TESTCoordinator implements CoordinatorType{ //Pay attention to the name format. The pattern is YOURNAMECoordinator
 	@Override public DynamicSupplier<Point>getCoordinator(ITaskExecutor f,Coordinator c){
 		return()->new Point(0,0);//Returning just a fixed point at (0,0)
 		//You can also place here a full anonimous class definition like this:
 		/*
-			* 	return new DynamicSupplier<Point>(){
-			* 		public Point get(){return new Point(0,0);}
-			* 		public void init(){...}
-			* 	}
-		*/
+		 * 	return new DynamicSupplier<Point>(){
+		 * 		public Point get(){return new Point(0,0);}
+		 * 		public void init(){...}
+		 * 	}
+		 */
 		//This might be useful if you plan to initialize the supplier somehow.
 	}
 	@Override public ArrayList<Serializable>getDefaultProperties(int x,int y){
@@ -47,8 +47,8 @@ public class TESTCoordinator implements CoordinatorType{ //Pay attention to the 
 		g2.setColor(Color.BLACK);
 		g2.fillOval(x+size.width/4,y+size.height/4,size.width/2,size.height/2);
 	}
-	@Override public void paintTrack(Graphics2D g2,int x,int y,int s,Coordinator c,int a){
-		g2.setColor(new Color(0,0,0,a)); //Setting black color with the right opacity.
+	@Override public void paintTrack(Graphics2D g2,int x,int y,int s,Coordinator c){
+		g2.setColor(new Color(0,0,0)); //Setting black color with the right opacity.
 		g2.drawOval(x-2*s,y-2*s,4*s,4*s); //Drawing a circle of double radius.
 	}
 	@Override public boolean isPositional(){return false;} //"Positional" means "based on x and y set by user and moveable".
