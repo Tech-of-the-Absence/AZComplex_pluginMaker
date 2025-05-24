@@ -18,9 +18,7 @@
 В корне плагина должен находиться класс `Main` со статическим методом
 
 ```java
-public static void init(EditorContext context,
-                        String folder,
-                        ExternalContext external)
+public static void init(EditorContext context, String folder, ExternalContext external)
 ```
 
 Метод вызывается загрузчиком при подключении плагина и служит точкой входа. Внутри `init()` можно подписаться на события через `external.addAZListener(...)`, подготовить ресурсы и выполнить первоначальную настройку.
